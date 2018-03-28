@@ -44,7 +44,7 @@ cov6 = 1/float(n6)*np.dot(train6.T,train6) - np.outer(u6,u6)
 cov5.tofile('cov5.csv',sep=',',format='%.5f')
 cov6.tofile('cov6.csv',sep=',',format='%.5f')
 #### overall covariance
-cov = 1/float(n5+n6)*np.dot(xtrain.T,xtrain) - np.outer(u,u) 		
+cov = 1/float(n5+n6)*(np.dot(xtrain.T,xtrain) - np.outer(u,u))
 
 del xtrain,train5,train6,ytrain
 
@@ -108,4 +108,3 @@ for i in range(yhat.size):
 		else:
 			conf[1,0] += 1;
 print conf.astype(int)
-'''
